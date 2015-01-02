@@ -37,8 +37,7 @@ def para_page(page,eventvalidation,viewstate,viewstate_generator):
 	return((
 		('ctl00_ScriptManager1_HiddenField','	;;AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:acfc7575-cdee-46af-964f-5d85d9cdcf92:effe2a26:7dd386e9'),
 		('__EVENTTARGET','ctl00$ContentPlaceHolder1$gvEventList'),
-		('__EVENTARGUMENT','Page$2'),
-		#('__EVENTTARGET','Page$'+str(page)),
+		('__EVENTTARGET','Page$'+str(page)),
 		('__EVENTVALIDATION',eventvalidation),
 		('__VIEWSTATE',viewstate),
 		('__VIEWSTATEGENERATOR',viewstate_generator),
