@@ -8,8 +8,8 @@ def ifel(a,b,c):
 		return(c)
 
 print('Dining Register')
-name=raw_input("SID:  ")
-password=raw_input("password:  ")
+name=raw_input("SID:  ") ##change to "'115501xxxxx'" (include')
+password=raw_input("password:  ") ##change to "'xxxxxxxx'" (include')
 
 url="https://cloud.itsc.cuhk.edu.hk//wrs/public/login.aspx?AppID=23"
 url1="https://cloud.itsc.cuhk.edu.hk/wrs/WRSEvent.aspx"
@@ -33,6 +33,7 @@ def para_login(soup,name,password):
 		('txtPassword',password)
 	))
 
+
 def para_page(page,eventvalidation,viewstate,viewstate_generator):
 	return((
 		('ctl00_ScriptManager1_HiddenField','	;;AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:acfc7575-cdee-46af-964f-5d85d9cdcf92:effe2a26:7dd386e9'),
@@ -43,6 +44,7 @@ def para_page(page,eventvalidation,viewstate,viewstate_generator):
 		('__VIEWSTATEGENERATOR',viewstate_generator),
 	))
 
+
 def para_detail(num,eventvalidation,viewstate,viewstate_generator):
 	return((
 		('ctl00_ScriptManager1_HiddenField',';;AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:acfc7575-cdee-46af-964f-5d85d9cdcf92:effe2a26:7dd386e9'),
@@ -52,6 +54,7 @@ def para_detail(num,eventvalidation,viewstate,viewstate_generator):
 		('__VIEWSTATE',viewstate),
 		('__VIEWSTATEGENERATOR',viewstate_generator),
 	))
+
 
 def para_info(eventvalidation,viewstate,viewstate_generator):
 	return((
@@ -80,6 +83,7 @@ def para_result(eventvalidation,viewstate,viewstate_generator):
 		('ctl00$ContentPlaceHolder1$btnNext','Register')
 	))
 	
+
 def read_login(url):
 	f=urllib.urlopen(url)
 	soup=BeautifulSoup(f)
@@ -94,6 +98,7 @@ def read_login(url):
 	else:
 		print("Login succeed!")
 		return(BeautifulSoup(pageContent))
+
 
 def read_one(i,eventvalidation,viewstate,viewstate_generator):
 	req=urllib2.Request(url1)
@@ -144,6 +149,7 @@ def read_page(page,soup):
 		pageContent=resp.read()
 		soup=BeautifulSoup(pageContent)
 		read_page(page,soup)
+
 
 read_page(1,read_login(url))
 print('==========\nfinished!')
