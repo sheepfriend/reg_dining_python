@@ -1,13 +1,6 @@
 import cookielib,urllib,urllib2
 from bs4 import BeautifulSoup
 
-#name=raw_input("SID:  ")
-#password=raw_input("password:  ")
-
-##change this to your own SID and password
-name='1155014000'
-password='12345678'
-
 def ifel(a,b,c):
 	if(a==True):
 		return(b)
@@ -15,6 +8,8 @@ def ifel(a,b,c):
 		return(c)
 
 print('Dining Register')
+name=raw_input("SID:  ") ##change to "'115501xxxxx'" (include')
+password=raw_input("password:  ") ##change to "'xxxxxxxx'" (include')
 
 url="https://cloud.itsc.cuhk.edu.hk//wrs/public/login.aspx?AppID=23"
 url1="https://cloud.itsc.cuhk.edu.hk/wrs/WRSEvent.aspx"
@@ -154,7 +149,6 @@ def read_page(page,soup):
 		pageContent=resp.read()
 		soup=BeautifulSoup(pageContent)
 		read_page(page,soup)
-
 
 read_page(1,read_login(url))
 print('==========\nfinished!')
