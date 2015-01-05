@@ -1,4 +1,4 @@
-import cookielib,urllib,urllib2
+import cookielib,urllib,urllib2,getpass
 from bs4 import BeautifulSoup
 
 def ifel(a,b,c):
@@ -9,8 +9,8 @@ def ifel(a,b,c):
 
 print('Dining Register')
 name=raw_input("SID:  ") ##change to "'115501xxxxx'" (include')
-password=raw_input("password:  ") ##change to "'xxxxxxxx'" (include')
-
+#password=raw_input("password:  ") ##change to "'xxxxxxxx'" (include')
+password=getpass.getpass()
 url="https://cloud.itsc.cuhk.edu.hk//wrs/public/login.aspx?AppID=23"
 url1="https://cloud.itsc.cuhk.edu.hk/wrs/WRSEvent.aspx"
 url2="https://cloud.itsc.cuhk.edu.hk/wrs/WRSEventDetails.aspx"
