@@ -134,7 +134,7 @@ def read_page(page,soup):
 	print('==========\nPage '+str(page))
 	table=soup.find(id='ctl00_ContentPlaceHolder1_gvEventList')
 	tr=table.findAll('tr')
-	num=len(tr)-2
+	num=len(tr)
 	viewstate = soup.select("#__VIEWSTATE")[0]['value']
 	eventvalidation = soup.select("#__EVENTVALIDATION")[0]['value']
 	viewstate_generator = soup.select("#__VIEWSTATEGENERATOR")[0]['value']
