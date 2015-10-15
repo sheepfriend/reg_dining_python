@@ -138,9 +138,9 @@ def read_page(page,soup):
 	viewstate = soup.select("#__VIEWSTATE")[0]['value']
 	eventvalidation = soup.select("#__EVENTVALIDATION")[0]['value']
 	viewstate_generator = soup.select("#__VIEWSTATEGENERATOR")[0]['value']
-	for i in range(2,num+1):
+	for i in range(2,num-1):
 		read_one(i,eventvalidation,viewstate,viewstate_generator)
-	if(num==11):
+	if(num==13):
 		page+=1
 		req=urllib2.Request(url1)
 		para=para_page(page,eventvalidation,viewstate,viewstate_generator)
